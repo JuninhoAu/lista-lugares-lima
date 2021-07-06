@@ -65,9 +65,9 @@ class DetailFragment : Fragment() {
 
                 }catch ( ex: ActivityNotFoundException){
 
-                    showMsg("debe instalar google maps para mostrar ubicación")
+                    showMsg("debe instalar google maps")
 
-
+//Hola
                 }
 
 
