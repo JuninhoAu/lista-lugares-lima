@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".detail.DetailFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.82">
+
+    <ImageView
+        android:id="@+id/img_place"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        tools:src="@mipmap/ic_launcher"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"/>
+
+        <ProgressBar
+            android:id="@+id/pg_bar"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.18"
+        android:background="?attr/colorSecondary"
+        android:padding="8sp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/img_ubi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
+            tools:text="Centro Comercial Larcomar"
+            android:textSize="16dp"
+            android:padding="12sp"/>
+
+        <ImageView
+            android:id="@+id/img_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toStartOf="@id/img_ubi"
+            android:layout_alignTop="@id/img_ubi"
+            android:layout_alignBottom="@id/img_ubi"
+            android:src="@android:drawable/ic_menu_mylocation"
+            app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

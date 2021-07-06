@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navi"
+    app:startDestination="@id/listFragment">
+    <fragment
+        android:id="@+id/placesDetailsFragment"
+        android:name="com.juni.limaguialugares.PlacesDetailsFragment"
+        android:label="PlacesDetailsFragment"
+        tools:layout="@layout/fragment_places_details"/>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.juni.limaguialugares.lista.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_placesDetailsFragment"
+            app:destination="@id/placesDetailsFragment" />
+    </fragment>
+</navigation>
