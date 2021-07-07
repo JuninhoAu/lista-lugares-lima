@@ -8,7 +8,9 @@ Esta app esta desarrollada en Kotlin usando un patrón de diseño MVVM.
 
 Para la descarga de imagenes de internet se esta utlizando la libreria Glide.
 
-El layout consiste de dos Fragments dentro de un RelativeLayout
+El layout consiste de dos Fragments dentro de un RelativeLayout.
+
+Para mostrar el listado de elementos se esta utlizando ReciclerView.
 
 
 ## Agradecimientos
