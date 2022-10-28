@@ -11,7 +11,7 @@ import com.juni.limaguialugares.R
 class MainActivity : AppCompatActivity(), ListFragment.PlacesInterface {
 
     private lateinit var detailFragment: DetailFragment
-
+   //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
