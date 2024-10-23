@@ -18,7 +18,7 @@ import java.lang.ClassCastException
 
 class ListFragment : Fragment() {
 
-    interface PlacesInterface{
+    interface PlacesInterface {
 
         fun placeSelect(places: Places)
 
@@ -30,11 +30,11 @@ class ListFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        placesInter=try {
+        placesInter = try {
 
             context as PlacesInterface
 
-        }catch (e: ClassCastException){
+        } catch (e: ClassCastException) {
 
             throw ClassCastException("implementation onAttach error")
 
@@ -45,27 +45,28 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val viewRoot= inflater.inflate(R.layout.fragment_list, container, false)
-        val recyclerView=viewRoot.findViewById<RecyclerView>(R.id.recycler_items)
-        recyclerView.layoutManager=LinearLayoutManager(requireActivity())
-        val adapter= FragmentAdapter()
-        recyclerView.adapter=adapter
+        val viewRoot = inflater.inflate(R.layout.fragment_list, container, false)
+        val recyclerView = viewRoot.findViewById<RecyclerView>(R.id.recycler_items)
+        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        val adapter = FragmentAdapter()
+        recyclerView.adapter = adapter
 
-        val viewModel=ViewModelProvider(this).get(ListViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
 
-        viewModel.placeList.observe(this , Observer {
+        viewModel.placeList.observe(viewLifecycleOwner, Observer {
 
-            listPlace ->        adapter.submitList(listPlace)
+                listPlace ->
+            adapter.submitList(listPlace)
 
 
         })
-        val divider= DividerItemDecoration(activity,DividerItemDecoration.VERTICAL)
+        val divider = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(divider)
 
 
-        adapter.hacerCLick={
+        adapter.hacerCLick = {
 
-           placesInter.placeSelect(it)
+            placesInter.placeSelect(it)
 
 
         }
