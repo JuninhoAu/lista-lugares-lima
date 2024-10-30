@@ -6,12 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.juni.limaguialugares.R
 import java.lang.ClassCastException
 
 
@@ -37,35 +35,20 @@ class ListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val viewRoot = inflater.inflate(R.layout.fragment_list, container, false)
-        val recyclerView = viewRoot.findViewById<RecyclerView>(R.id.recycler_items)
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        val adapter = FragmentAdapter()
-        recyclerView.adapter = adapter
+    ): View {
 
         val viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
 
-        viewModel.placeList.observe(viewLifecycleOwner, Observer {
+        return ComposeView(requireContext()).apply {
 
-                listPlace ->
-            adapter.submitList(listPlace)
-
-
-        })
-        val divider = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
-        recyclerView.addItemDecoration(divider)
-
-
-        adapter.hacerCLick = {
-
-            placesInter.placeSelect(it)
-
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                MaterialTheme {
+                    ListScreen(viewModel, placesInter)
+                }
+            }
 
         }
-
-
-        return viewRoot
     }
 
 
