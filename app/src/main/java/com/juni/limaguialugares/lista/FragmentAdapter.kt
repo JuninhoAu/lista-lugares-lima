@@ -49,7 +49,7 @@ class FragmentAdapter :ListAdapter<Places, FragmentAdapter.ViewHolder>(DiffCallb
 
         val context = holder.itemView.context
 
-        val color = MaterialColors.getColor(context, R.attr.colorOnPrimary, Color.BLACK)
+        val color = MaterialColors.getColor(context, com.google.android.material.R.attr.colorOnPrimary, Color.BLACK)
 
         holder.bind(places,position)
 
@@ -57,7 +57,7 @@ class FragmentAdapter :ListAdapter<Places, FragmentAdapter.ViewHolder>(DiffCallb
         if(selectedItemPosition==position){
 
 
-            holder.itemView.setBackgroundColor( MaterialColors.getColor(context, R.attr.colorPrimaryVariant, Color.MAGENTA));
+            holder.itemView.setBackgroundColor( MaterialColors.getColor(context, com.google.android.material.R.attr.colorOnSecondary, Color.MAGENTA));
 
         }
         else
@@ -97,7 +97,7 @@ class FragmentAdapter :ListAdapter<Places, FragmentAdapter.ViewHolder>(DiffCallb
 
                     selectedItemPosition = position
 
-                    notifyDataSetChanged()
+                    //notifyDataSetChanged()
 
 
                 }

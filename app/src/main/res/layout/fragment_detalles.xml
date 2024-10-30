@@ -17,6 +17,7 @@
         android:id="@+id/img_place"
         android:layout_width="match_parent"
         android:layout_height="280dp"
+        android:contentDescription="@string/image_des"
         tools:src="@mipmap/ic_launcher"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"/>
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content"
             android:textColor="?attr/colorOnPrimary"
             tools:text="Centro Comercial Larcomar"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:padding="12sp"/>
 
         <ImageView

@@ -11,18 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.juni.limaguialugares.Places
 import com.juni.limaguialugares.R
 import java.lang.ClassCastException
 
 
 class ListFragment : Fragment() {
-
-    interface PlacesInterface {
-
-        fun placeSelect(places: Places)
-
-    }
 
     private lateinit var placesInter: PlacesInterface
 
